@@ -17,7 +17,7 @@ router.post("/login", (req, res, next) => {
             if (err) {
                 return res.status(400).json({ errors: err });
             }
-            return res.status(200).json({ success: `Logeado con id ${user.id}` });
+            return res.status(200).json({ success: user });
         });
     })(req, res, next);
 });
