@@ -9,6 +9,8 @@ require('dotenv').config()
 // .env
 
 const app = express();
+app.use(cors());
+//cors
 var PORT = process.env.PORT ;
 const MONGO_URI = "mongodb+srv://msebass:KMFedy94@cluster0.hghwl.mongodb.net/kuepa?retryWrites=true&w=majority";
 
