@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 //importacion mongoose y el conector
 const passport = require("./passport/setup");
 const auth = require("./routes/auth");
+const cors = require("cors");
 require('dotenv').config()
 // .env
 
