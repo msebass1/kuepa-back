@@ -30,7 +30,7 @@ io.on("connection", socket => {
   socket.on('send message', (body) => {
     const newMessage = new Message(body);
     io.emit('message',body)
-    newMessage.save()
+    newMessage.save().catch((er)=> console.log(er))
   })
 })
 
