@@ -57,4 +57,4 @@ app.use(passport.session());
 app.use("/auth", auth);
 app.get("/", (req, res) => res.send("Corriendo :)"));
 
-server.listen(PORT, {origins:'*'}, ()=>console.log(`Backend corriendo on el puerto ${PORT}!`));
+server.listen(PORT, ()=>console.log(`Backend corriendo on el puerto ${PORT}!`));
