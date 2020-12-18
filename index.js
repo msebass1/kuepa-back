@@ -22,9 +22,13 @@ const io = socket(server, {
   }
 });
 
+
+// -----------------Socket io - modelo mensajes--------------------
+const Message = require("./models/Messages");
 io.on("connection", socket => {
   socket.emit('tu id es', socket.id);
-  socket.on('send message', body => {
+  socket.on('send message', (body,user) => {
+    console.log(body,user);
     io.emit('message',body)
   })
 })
