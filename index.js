@@ -27,9 +27,10 @@ const io = socket(server, {
 const Message = require("./models/Messages");
 io.on("connection", socket => {
   socket.emit('tu id es', socket.id);
-  socket.on('send message', (body,user) => {
-    console.log(body,user);
+  socket.on('send message', (body) => {
+    const newMessage = new Message(body);
     io.emit('message',body)
+    newMessage.save()
   })
 })
 
