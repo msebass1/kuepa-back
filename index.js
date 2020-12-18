@@ -10,7 +10,7 @@ require('dotenv').config()
 
 const app = express();
 var PORT = process.env.PORT ;
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = "mongodb+srv://msebass:KMFedy94@cluster0.hghwl.mongodb.net/kuepa?retryWrites=true&w=majority";
 
 mongoose
     .connect(MONGO_URI, { useNewUrlParser: true , useUnifiedTopology: true})
