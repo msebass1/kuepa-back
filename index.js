@@ -16,7 +16,7 @@ app.use(cors());
 const http = require("http");
 const server = http.createServer(app);
 const socket = require("socket.io");
-const io = socket.listen(server);
+const io = socket(server);
 
 io.on("connection", socket => {
   socket.emit('tu id es', socket.id);
@@ -57,4 +57,4 @@ app.use(passport.session());
 app.use("/auth", auth);
 app.get("/", (req, res) => res.send("Corriendo :)"));
 
-app.listen(PORT, () => console.log(`Backend corriendo on el puerto ${PORT}!`));
+server.listen(PORT, {origins:'*'}, ()=>console.log(`Backend corriendo on el puerto ${PORT}!`));
