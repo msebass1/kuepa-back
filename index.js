@@ -6,12 +6,28 @@ const mongoose = require("mongoose");
 const passport = require("./passport/setup");
 const auth = require("./routes/auth");
 const cors = require("cors");
-require('dotenv').config()
+require('dotenv').config();
 // .env
 
 const app = express();
 app.use(cors());
 //cors
+
+const http = require("http");
+const server = http.createServer(app);
+const socket = require("socket.io");
+const io = socket(server);
+
+io.on("connection", socket => {
+  socket.emit('tu id es', socket.id);
+  socket.on('send message', body => {
+    io.emit('message',body)
+  })
+})
+
+// socket io
+
+
 var PORT = process.env.PORT ;
 const MONGO_URI = "mongodb+srv://msebass:KMFedy94@cluster0.hghwl.mongodb.net/kuepa?retryWrites=true&w=majority";
 
