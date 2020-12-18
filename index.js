@@ -16,7 +16,7 @@ app.use(cors());
 const http = require("http");
 const server = http.createServer(app);
 const socket = require("socket.io");
-const io = socket(server);
+const io = socket.listen(server);
 
 io.on("connection", socket => {
   socket.emit('tu id es', socket.id);
